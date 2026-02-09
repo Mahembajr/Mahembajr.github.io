@@ -2,104 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- SEO -->
     <title>Laurent Mahemba | Cybersecurity Portfolio</title>
+    <meta name="description" content="Cybersecurity portfolio of Laurent Mahemba, MSc IT (Cybersecurity & Forensics). Projects in Python, React, secure systems, and leadership experience.">
+    <meta name="keywords" content="Cybersecurity, Python, React, Portfolio, Secure Systems, IT Student">
+    <meta name="author" content="Laurent Mahemba">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Laurent Mahemba</h1>
+<header class="reveal">
+    <h1><i class="fa-solid fa-user-shield"></i> Laurent Mahemba</h1>
     <p>MSc IT (Cybersecurity & Forensics)</p>
     <p class="tagline">Cybersecurity Enthusiast | Secure Systems | IT Support</p>
+
+    <a href="cv.pdf" class="cv-btn" download>
+        <i class="fa-solid fa-download"></i> Download CV
+    </a>
 </header>
 
-<section>
-    <h2>About Me</h2>
+<section class="reveal">
+    <h2><i class="fa-solid fa-circle-info"></i> About Me</h2>
     <p>
-        I am a Master’s student in Information Technology specializing in Cybersecurity and Forensics
-        at Parul University. I have a strong academic background in IT and hands-on experience in
-        full-stack academic system development, digital marketing, and student leadership.
-        I am passionate about building secure systems and applying cybersecurity concepts in real-world projects.
+        I am a Master’s student specializing in Cybersecurity and Forensics at Parul University.
+        I have hands-on experience in full-stack development using Python and React, secure system concepts,
+        and leadership roles within the student community.
     </p>
 </section>
 
-<section>
-    <h2>Core Skills</h2>
-    <ul>
-        <li>Cybersecurity fundamentals (CIA triad, access control)</li>
-        <li>Secure system design & authentication concepts</li>
-        <li>Python programming</li>
-        <li>Frontend development with React</li>
-        <li>Databases: SQLite (and relational DB concepts)</li>
-        <li>Linux & basic system administration</li>
-        <li>Git & GitHub</li>
+<section class="reveal">
+    <h2><i class="fa-solid fa-code"></i> Core Skills</h2>
+    <ul class="icon-list">
+        <li><i class="fa-solid fa-shield-halved"></i> Cybersecurity fundamentals & access control</li>
+        <li><i class="fa-brands fa-python"></i> Python programming</li>
+        <li><i class="fa-brands fa-react"></i> React frontend development</li>
+        <li><i class="fa-solid fa-database"></i> SQLite databases</li>
+        <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
     </ul>
 </section>
 
-<section>
-    <h2>Projects</h2>
+<section class="reveal">
+    <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
 
-    <div class="project">
-        <h3>Alumni Management System (Final Year Project)</h3>
+    <div class="project hover-card">
+        <img src="images/alumni.png" alt="Alumni Management System Screenshot">
+        <h3>🎓 Alumni Management System</h3>
         <p>
-            A full-stack web application developed as my Bachelor’s final year project.
-            The system manages alumni records, supports secure authentication, and enables
-            communication between alumni and the institution.
+            Full-stack final year project for managing alumni records, secure authentication,
+            and institutional communication.
         </p>
-        <p><strong>Technologies:</strong> Python, React, SQLite</p>
-        <p>
-            <a href="#" target="_blank">GitHub Repository (add link)</a>
-        </p>
+        <p><strong>Tech:</strong> Python, React, SQLite</p>
+        <a href="#" target="_blank"><i class="fa-brands fa-github"></i> View Repository</a>
     </div>
 
-    <div class="project">
-        <h3>File Secure System (Current Working Project)</h3>
+    <div class="project hover-card">
+        <img src="images/file-secure.png" alt="File Secure System Screenshot">
+        <h3>🔐 File Secure System (Ongoing)</h3>
         <p>
-            An ongoing project focused on secure file storage and controlled access.
-            Designed to strengthen practical understanding of cybersecurity principles
-            such as authentication, authorization, and data protection.
+            Cybersecurity-focused project for secure file storage, controlled access,
+            and data protection.
         </p>
-        <p><strong>Focus Areas:</strong> Secure access control, file protection, user authentication</p>
-        <p>
-            <a href="#" target="_blank">GitHub Repository (coming soon)</a>
-        </p>
+        <span class="badge">Current Project</span>
     </div>
-
 </section>
 
-<section>
-    <h2>Certifications</h2>
-    <ul>
-        <li>Introduction to Cybersecurity – Cisco Networking Academy</li>
-        <li>Cybersecurity Essentials – Cisco Networking Academy</li>
-        <li>Python Programming Fundamentals</li>
-        <li>Digital Marketing Certification</li>
-        <li>Any additional certification you have (add here)</li>
-    </ul>
+<section class="reveal">
+    <h2><i class="fa-solid fa-certificate"></i> Certifications</h2>
+
+    <div class="cert-grid">
+        <div class="cert hover-card">
+            <img src="images/cisco1.png" alt="Cisco Cybersecurity Certificate">
+            <p>Introduction to Cybersecurity<br><span>Cisco Networking Academy</span></p>
+        </div>
+
+        <div class="cert hover-card">
+            <img src="images/cisco2.png" alt="Cisco Cybersecurity Essentials">
+            <p>Cybersecurity Essentials<br><span>Cisco Networking Academy</span></p>
+        </div>
+
+        <div class="cert hover-card">
+            <img src="images/python.png" alt="Python Certificate">
+            <p>Python Programming Fundamentals</p>
+        </div>
+
+        <div class="cert hover-card">
+            <img src="images/marketing.png" alt="Digital Marketing Certificate">
+            <p>Digital Marketing Certification</p>
+        </div>
+    </div>
 </section>
 
-<section>
-    <h2>Leadership & Experience</h2>
-    <p>
-        <strong>President</strong>, Tanzania Students – Parul University (TANSPU)<br>
-        Led student coordination, representation, and academic support initiatives.
-    </p>
-    <p>
-        <strong>Digital Marketing Experience</strong><br>
-        Managed content creation and online promotion for a construction company.
-    </p>
-</section>
-
-<section>
-    <h2>Contact</h2>
-    <p>Email: mahembalaurent@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/Mahembajr" target="_blank">github.com/Mahembajr</a></p>
-    <p>LinkedIn: <a href="#" target="_blank">Add your LinkedIn profile</a></p>
+<section class="reveal">
+    <h2><i class="fa-solid fa-address-card"></i> Contact</h2>
+    <p><i class="fa-solid fa-envelope"></i> yourname@email.com</p>
+    <p><i class="fa-brands fa-github"></i> <a href="https://github.com/Mahembajr">github.com/Mahembajr</a></p>
+    <p><i class="fa-brands fa-linkedin"></i> <a href="#">LinkedIn Profile</a></p>
 </section>
 
 <footer>
     <p>© 2026 Laurent Mahemba | Cybersecurity Portfolio</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
