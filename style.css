@@ -7,18 +7,28 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, #020617, #0a2540);
-    padding: 50px 20px;
     text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #020617, #0a2540);
 }
 
-header h1 {
-    margin-bottom: 10px;
+h1 {
     color: #38bdf8;
 }
 
 .tagline {
     color: #94a3b8;
+}
+
+.cv-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #38bdf8;
+    color: #020617;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 section {
@@ -30,38 +40,66 @@ section {
 h2 {
     color: #38bdf8;
     border-bottom: 2px solid #1e293b;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
 }
 
-ul {
-    list-style-type: square;
-    padding-left: 20px;
+.icon-list li {
+    margin-bottom: 10px;
 }
 
-.project {
-    background-color: #020617;
+.project, .cert {
+    background: #020617;
     padding: 20px;
     margin-top: 20px;
     border-left: 4px solid #38bdf8;
 }
 
-.project h3 {
-    margin-top: 0;
-    color: #e2e8f0;
+.project img, .cert img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
 }
 
-a {
-    color: #38bdf8;
-    text-decoration: none;
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
-a:hover {
-    text-decoration: underline;
+.badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #022c22;
+    color: #4ade80;
+    border-radius: 20px;
+    font-size: 0.85em;
 }
 
 footer {
-    background-color: #020617;
     text-align: center;
     padding: 20px;
+    background: #020617;
     color: #94a3b8;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(56,189,248,0.2);
 }
