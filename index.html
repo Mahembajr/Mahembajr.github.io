@@ -1,115 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-
-    <!-- SEO -->
-    <title>Laurent Mahemba | Cybersecurity Portfolio</title>
-    <meta name="description" content="Cybersecurity portfolio of Laurent Mahemba, MSc IT (Cybersecurity & Forensics). Projects in Python, React, secure systems, and leadership experience.">
-    <meta name="keywords" content="Cybersecurity, Python, React, Portfolio, Secure Systems, IT Student">
-    <meta name="author" content="Laurent Mahemba">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Laurent Mahemba | Cybersecurity Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #080c10; --surface: #0d1117; --surface2: #131920;
+    --border: rgba(0,255,136,0.12); --green: #00ff88; --green-dim: #00cc6a;
+    --text: #e2e8f0; --muted: #7a8a99;
+    --mono: 'Space Mono', monospace; --sans: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); pointer-events: none; z-index: 1000; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,12,16,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--mono); font-size: 13px; color: var(--green); letter-spacing: 0.05em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-family: var(--mono); font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--green); }
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 80px 2rem 4rem; position: relative; overflow: hidden; }
+  .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,255,136,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.04) 1px, transparent 1px); background-size: 50px 50px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%); }
+  .hero-glow { position: absolute; top: 20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,255,136,0.06) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { position: relative; max-width: 860px; margin: 0 auto; width: 100%; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--green); border: 1px solid var(--border); padding: 6px 14px; border-radius: 2px; margin-bottom: 2rem; letter-spacing: 0.1em; }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .hero h1 { font-family: var(--mono); font-size: clamp(2.2rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .hero h1 .accent { color: var(--green); }
+  .hero-role { font-family: var(--mono); font-size: 14px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero-desc { font-size: 17px; color: var(--muted); max-width: 580px; margin-bottom: 2.5rem; line-height: 1.8; font-weight: 300; }
+  .hero-desc strong { color: var(--text); font-weight: 500; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: #000; font-family: var(--mono); font-size: 13px; font-weight: 700; padding: 12px 24px; border-radius: 2px; text-decoration: none; letter-spacing: 0.05em; transition: all 0.2s; }
+  .btn-primary:hover { background: var(--green-dim); transform: translateY(-1px); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--green); font-family: var(--mono); font-size: 13px; padding: 12px 24px; border-radius: 2px; border: 1px solid var(--border); text-decoration: none; letter-spacing: 0.05em; transition: all 0.2s; }
+  .btn-outline:hover { border-color: var(--green); background: rgba(0,255,136,0.05); }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .stat-item { display: flex; flex-direction: column; }
+  .stat-num { font-family: var(--mono); font-size: 1.8rem; font-weight: 700; color: var(--green); line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: 0.05em; }
+  section { padding: 6rem 2rem; max-width: 900px; margin: 0 auto; }
+  .section-label { font-family: var(--mono); font-size: 11px; color: var(--green); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .section-title { font-family: var(--mono); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--text); margin-bottom: 3rem; line-height: 1.2; }
+  .full-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .about-text p { color: var(--muted); margin-bottom: 1rem; font-weight: 300; }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; margin-bottom: 1rem; }
+  .about-card:last-child { margin-bottom: 0; }
+  .about-card-title { font-family: var(--mono); font-size: 11px; color: var(--green); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  .cert-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .cert-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .cert-icon { color: var(--green); font-family: var(--mono); font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+  .cert-name { color: var(--text); font-weight: 500; line-height: 1.4; }
+  .cert-issuer { color: var(--muted); font-size: 11px; margin-top: 2px; }
+  .exp-list { display: flex; flex-direction: column; gap: 1rem; }
+  .exp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.6rem 1.8rem; position: relative; overflow: hidden; transition: border-color 0.2s; }
+  .exp-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--green); opacity: 0; transition: opacity 0.2s; }
+  .exp-card:hover { border-color: rgba(0,255,136,0.3); }
+  .exp-card:hover::before { opacity: 1; }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+  .exp-title { font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--text); }
+  .exp-date { font-family: var(--mono); font-size: 11px; color: var(--green); white-space: nowrap; }
+  .exp-company { font-size: 13px; color: var(--muted); margin: 4px 0 0.8rem; }
+  .exp-bullets { list-style: none; padding: 0; }
+  .exp-bullets li { font-size: 14px; color: var(--muted); font-weight: 300; padding: 3px 0 3px 18px; position: relative; }
+  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--green); font-family: var(--mono); font-size: 11px; top: 5px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem 1.5rem; transition: border-color 0.2s; }
+  .skill-card:hover { border-color: rgba(0,255,136,0.3); }
+  .skill-card-title { font-family: var(--mono); font-size: 12px; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-family: var(--mono); font-size: 11px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); padding: 3px 10px; border-radius: 2px; }
+  .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem 2rem; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+  .project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--green); opacity: 0; transition: opacity 0.2s; }
+  .project-card:hover { border-color: rgba(0,255,136,0.25); transform: translateX(4px); }
+  .project-card:hover::before { opacity: 1; }
+  .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+  .project-title { font-family: var(--mono); font-size: 16px; font-weight: 700; color: var(--text); }
+  .project-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; flex-shrink: 0; }
+  .badge-active { background: rgba(0,255,136,0.1); color: var(--green); border: 1px solid rgba(0,255,136,0.2); }
+  .badge-done { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+  .project-desc { color: var(--muted); font-size: 15px; margin-bottom: 1rem; font-weight: 300; line-height: 1.7; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+  .project-link { font-family: var(--mono); font-size: 12px; color: var(--green); text-decoration: none; letter-spacing: 0.05em; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+  .project-link:hover { opacity: 0.7; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  .contact-intro { color: var(--muted); font-weight: 300; margin-bottom: 2rem; line-height: 1.85; }
+  .contact-intro strong { color: var(--text); font-weight: 500; }
+  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+  .contact-item { display: flex; align-items: center; gap: 12px; text-decoration: none; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; transition: border-color 0.2s; }
+  .contact-item:hover { border-color: rgba(0,255,136,0.3); }
+  .contact-icon { font-family: var(--mono); font-size: 12px; color: var(--green); width: 24px; flex-shrink: 0; }
+  .contact-label { font-family: var(--mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .contact-value { font-size: 14px; color: var(--text); margin-top: 1px; }
+  .tryhackme-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; }
+  .tryhackme-card-title { font-family: var(--mono); font-size: 11px; color: var(--green); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  .thm-stat { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .thm-stat:last-of-type { border-bottom: none; }
+  .thm-key { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+  .thm-val { color: var(--text); font-weight: 500; }
+  .thm-val.green { color: var(--green); }
+  footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
+  footer span { color: var(--green); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-inner > * { animation: fadeUp 0.6s ease both; }
+  .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-inner > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-inner > *:nth-child(6) { animation-delay: 0.6s; }
+  @media (max-width: 700px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.25rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .exp-header { flex-direction: column; gap: 4px; }
+  }
+</style>
 </head>
 <body>
 
-<header class="reveal">
-    <h1><i class="fa-solid fa-user-shield"></i> Laurent Mahemba</h1>
-    <p>MSc IT (Cybersecurity & Forensics)</p>
-    <p class="tagline">Cybersecurity Enthusiast | Secure Systems | IT Support</p>
+<nav>
+  <div class="nav-logo">~/mahemba_laurent</div>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
 
-    <a href="cv.pdf" class="cv-btn" download>
-        <i class="fa-solid fa-download"></i> Download CV
-    </a>
-</header>
-
-<section class="reveal">
-    <h2><i class="fa-solid fa-circle-info"></i> About Me</h2>
-    <p>
-        I am a Master’s student specializing in Cybersecurity and Forensics at Parul University.
-        I have hands-on experience in full-stack development using Python and React, secure system concepts,
-        and leadership roles within the student community.
+<section class="hero" id="home" style="max-width:100%">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">OPEN TO OPPORTUNITIES · TANZANIA &amp; REMOTE</div>
+    <h1><span class="name">Laurent</span><br/><span class="accent">Mahemba</span></h1>
+    <div class="hero-role">MSc Cybersecurity &amp; Digital Forensics · Parul University, India</div>
+    <p class="hero-desc">
+      Cybersecurity professional with hands-on experience in <strong>ethical hacking, digital forensics,
+      and network security</strong>. Former <strong>Google GDSC Lead</strong> and
+      <strong>ERP Functional Specialist</strong>. I build secure systems and understand how to break them.
     </p>
+    <div class="hero-actions">
+      <a href="CV.pdf" class="btn-primary" download>↓ Download CV</a>
+      <a href="#contact" class="btn-outline">Get in Touch →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">4.0</span><span class="stat-label">BSc GPA · Upper 2nd Hons</span></div>
+      <div class="stat-item"><span class="stat-num">3+</span><span class="stat-label">Cisco Certifications</span></div>
+      <div class="stat-item"><span class="stat-num">GDSC</span><span class="stat-label">Google Club Lead 2023–24</span></div>
+      <div class="stat-item"><span class="stat-num">THM</span><span class="stat-label">Active on TryHackMe</span></div>
+    </div>
+  </div>
 </section>
 
-<section class="reveal">
-    <h2><i class="fa-solid fa-code"></i> Core Skills</h2>
-    <ul class="icon-list">
-        <li><i class="fa-solid fa-shield-halved"></i> Cybersecurity fundamentals & access control</li>
-        <li><i class="fa-brands fa-python"></i> Python programming</li>
-        <li><i class="fa-brands fa-react"></i> React frontend development</li>
-        <li><i class="fa-solid fa-database"></i> SQLite databases</li>
-        <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
-    </ul>
+<hr class="full-divider" />
+
+<section id="about">
+  <div class="section-label">// 01. about</div>
+  <h2 class="section-title">Who I Am</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm <strong>Laurent Mahemba</strong>, a postgraduate student pursuing an MSc in IT (Cybersecurity &amp; Digital Forensics) at Parul University, India. My focus is on offensive and defensive security — from penetration testing and network analysis to digital forensics and SOC operations.</p>
+      <p>I hold a BSc in Information Technology Application &amp; Management from the <strong>State University of Zanzibar (SUZA)</strong>, graduating with Upper Second Class Honours and a <strong>4.0 GPA</strong>. My coursework included Computer Forensics &amp; Cybersecurity, Network &amp; Systems Administration, and Software Development.</p>
+      <p>Beyond cybersecurity, I have real-world professional experience as an <strong>ERP Functional Specialist</strong> at Kola Technologies and as a <strong>Google GDSC Club Lead</strong>, where I organised hackathons and developer workshops for 50+ participants.</p>
+      <p>I'm actively practising on <strong>TryHackMe</strong>, running a personal home lab, and working toward CompTIA Security+. Passionate about growing cybersecurity capacity across East Africa.</p>
+    </div>
+    <div>
+      <div class="about-card">
+        <div class="about-card-title">// certifications</div>
+        <div class="cert-item">
+          <span class="cert-icon">[✓]</span>
+          <div><div class="cert-name">Introduction to Cybersecurity</div><div class="cert-issuer">Cisco Networking Academy · Oct 2024</div></div>
+        </div>
+        <div class="cert-item">
+          <span class="cert-icon">[→]</span>
+          <div><div class="cert-name">Cybersecurity Essentials</div><div class="cert-issuer">Cisco Networking Academy · Ongoing</div></div>
+        </div>
+        <div class="cert-item">
+          <span class="cert-icon">[→]</span>
+          <div><div class="cert-name">Network Defence</div><div class="cert-issuer">Cisco Networking Academy · Ongoing</div></div>
+        </div>
+        <div class="cert-item">
+          <span class="cert-icon">[✓]</span>
+          <div><div class="cert-name">AI Career Essentials</div><div class="cert-issuer">ALX Africa / Mastercard Foundation · May 2024</div></div>
+        </div>
+        <div class="cert-item">
+          <span class="cert-icon">[✓]</span>
+          <div><div class="cert-name">GDSC Lead Certificate</div><div class="cert-issuer">Google Developer Student Clubs · 2023–2024</div></div>
+        </div>
+        <div class="cert-item">
+          <span class="cert-icon">[✓]</span>
+          <div><div class="cert-name">Python Programming Fundamentals</div><div class="cert-issuer">Verified Certificate</div></div>
+        </div>
+        <div class="cert-item">
+          <span class="cert-icon">[→]</span>
+          <div><div class="cert-name" style="color:var(--muted)">CompTIA Security+</div><div class="cert-issuer">In preparation</div></div>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-title">// field training</div>
+        <div class="cert-item">
+          <span class="cert-icon">[✓]</span>
+          <div><div class="cert-name">DCB Bank Head Office</div><div class="cert-issuer">IT systems, end-user support &amp; infrastructure · 2023</div></div>
+        </div>
+        <div class="cert-item">
+          <span class="cert-icon">[✓]</span>
+          <div><div class="cert-name">TANESCO Magomeni</div><div class="cert-issuer">Enterprise IT &amp; network environments · 2022</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="reveal">
-    <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
+<hr class="full-divider" />
 
-    <div class="project hover-card">
-        <img src="images/alumni.png" alt="Alumni Management System Screenshot">
-        <h3>🎓 Alumni Management System</h3>
-        <p>
-            Full-stack final year project for managing alumni records, secure authentication,
-            and institutional communication.
-        </p>
-        <p><strong>Tech:</strong> Python, React, SQLite</p>
-        <a href="#" target="_blank"><i class="fa-brands fa-github"></i> View Repository</a>
+<section id="experience">
+  <div class="section-label">// 02. experience</div>
+  <h2 class="section-title">Work History</h2>
+  <div class="exp-list">
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">Functional Specialist — ERP (Odoo)</div>
+        <div class="exp-date">Mar 2025 – Jun 2025</div>
+      </div>
+      <div class="exp-company">Kola Technologies · Dar es Salaam, Tanzania</div>
+      <ul class="exp-bullets">
+        <li>Implemented and supported Odoo ERP solutions for clients across retail, services, and manufacturing.</li>
+        <li>Configured core modules: Sales, Point of Sale, Purchase, Inventory, Accounting, HR, Expenses.</li>
+        <li>Conducted user training sessions and live demos ensuring smooth system onboarding.</li>
+        <li>Gathered and translated business requirements into functional ERP configurations.</li>
+        <li>Provided post-implementation support, troubleshooting, and system optimisation.</li>
+      </ul>
     </div>
 
-    <div class="project hover-card">
-        <img src="images/file-secure.png" alt="File Secure System Screenshot">
-        <h3>🔐 File Secure System (Ongoing)</h3>
-        <p>
-            Cybersecurity-focused project for secure file storage, controlled access,
-            and data protection.
-        </p>
-        <span class="badge">Current Project</span>
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">IT &amp; Social Media Manager</div>
+        <div class="exp-date">Aug 2024 – Jan 2025</div>
+      </div>
+      <div class="exp-company">Merit Engineering Company · Remote &amp; Part-Time</div>
+      <ul class="exp-bullets">
+        <li>Managed company online presence, increasing digital engagement through targeted content strategies.</li>
+        <li>Oversaw IT support operations, ensuring reliability of digital tools and infrastructure.</li>
+        <li>Coordinated email marketing campaigns, driving client engagement and lead generation.</li>
+      </ul>
     </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">ALX Africa Scholar — AI Career Essentials</div>
+        <div class="exp-date">Mar 2024 – May 2024</div>
+      </div>
+      <div class="exp-company">Holberton Institute / ALX Africa · Remote · Mastercard Foundation Sponsored</div>
+      <ul class="exp-bullets">
+        <li>Completed 8-week programme in AI Augmented Professional Development.</li>
+        <li>Conducted research on emerging AI technologies and organised community outreach for AI literacy.</li>
+        <li>Networked with industry professionals across Africa.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">Club Lead — Google Developer Student Club (GDSC)</div>
+        <div class="exp-date">Oct 2023 – Oct 2024</div>
+      </div>
+      <div class="exp-company">State University of Zanzibar (SUZA)</div>
+      <ul class="exp-bullets">
+        <li>Promoted tech literacy through programming workshops, study jams, and hackathons.</li>
+        <li>Collaborated directly with Google to plan and execute campus developer initiatives.</li>
+        <li>Organised hackathons with 50+ participants, fostering a culture of innovation.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">President — Tanzania Students Association (TANSPU)</div>
+        <div class="exp-date">2025 – Present</div>
+      </div>
+      <div class="exp-company">Parul University · Vadodara, India</div>
+      <ul class="exp-bullets">
+        <li>Represent Tanzanian students at institutional and international levels.</li>
+        <li>Lead strategic planning, student advocacy, and cross-cultural engagement activities.</li>
+        <li>Serve as primary liaison between students and university administration.</li>
+      </ul>
+    </div>
+
+  </div>
 </section>
 
-<section class="reveal">
-    <h2><i class="fa-solid fa-certificate"></i> Certifications</h2>
+<hr class="full-divider" />
 
-    <div class="cert-grid">
-        <div class="cert hover-card">
-            <img src="images/cisco1.png" alt="Cisco Cybersecurity Certificate">
-            <p>Introduction to Cybersecurity<br><span>Cisco Networking Academy</span></p>
-        </div>
-
-        <div class="cert hover-card">
-            <img src="images/cisco2.png" alt="Cisco Cybersecurity Essentials">
-            <p>Cybersecurity Essentials<br><span>Cisco Networking Academy</span></p>
-        </div>
-
-        <div class="cert hover-card">
-            <img src="images/python.png" alt="Python Certificate">
-            <p>Python Programming Fundamentals</p>
-        </div>
-
-        <div class="cert hover-card">
-            <img src="images/marketing.png" alt="Digital Marketing Certificate">
-            <p>Digital Marketing Certification</p>
-        </div>
+<section id="skills">
+  <div class="section-label">// 03. skills</div>
+  <h2 class="section-title">Technical Arsenal</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-title">Offensive Security</div>
+      <div class="tags">
+        <span class="tag">Ethical Hacking</span><span class="tag">Penetration Testing</span>
+        <span class="tag">Vulnerability Assessment</span><span class="tag">Kali Linux</span>
+        <span class="tag">Nmap</span><span class="tag">Burp Suite</span>
+      </div>
     </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Defensive Security</div>
+      <div class="tags">
+        <span class="tag">SOC Operations</span><span class="tag">Network Security</span>
+        <span class="tag">Digital Forensics</span><span class="tag">Malware Analysis</span>
+        <span class="tag">Wireshark</span><span class="tag">Log Analysis</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Development</div>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">FastAPI</span>
+        <span class="tag">React</span><span class="tag">JWT Auth</span>
+        <span class="tag">RBAC</span><span class="tag">Java</span>
+        <span class="tag">JavaScript</span><span class="tag">Django</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Systems &amp; Networking</div>
+      <div class="tags">
+        <span class="tag">Linux</span><span class="tag">Windows Server</span>
+        <span class="tag">TCP/IP</span><span class="tag">Network Protocols</span>
+        <span class="tag">Systems Administration</span><span class="tag">IoT Design</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">ERP &amp; Cloud</div>
+      <div class="tags">
+        <span class="tag">Odoo ERP</span><span class="tag">Google Cloud</span>
+        <span class="tag">AWS</span><span class="tag">MySQL</span>
+        <span class="tag">SQLite</span><span class="tag">Oracle</span><span class="tag">Git</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Soft Skills</div>
+      <div class="tags">
+        <span class="tag">Leadership</span><span class="tag">Team Collaboration</span>
+        <span class="tag">Project Management</span><span class="tag">Communication</span>
+        <span class="tag">Problem-Solving</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="reveal">
-    <h2><i class="fa-solid fa-address-card"></i> Contact</h2>
-    <p><i class="fa-solid fa-envelope"></i> yourname@email.com</p>
-    <p><i class="fa-brands fa-github"></i> <a href="https://github.com/Mahembajr">github.com/Mahembajr</a></p>
-    <p><i class="fa-brands fa-linkedin"></i> <a href="#">LinkedIn Profile</a></p>
+<hr class="full-divider" />
+
+<section id="projects">
+  <div class="section-label">// 04. projects</div>
+  <h2 class="section-title">What I've Built</h2>
+  <div class="projects-list">
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-title">🔐 File Secure System</div>
+        <span class="project-badge badge-active">● Nearly Complete</span>
+      </div>
+      <p class="project-desc">A cybersecurity-focused application implementing secure file storage, user authentication, and access control mechanisms — applying core cybersecurity principles from MSc studies. Demonstrates real-world encryption and access control design.</p>
+      <div class="project-tech">
+        <span class="tag">Python</span><span class="tag">Encryption</span>
+        <span class="tag">Access Control</span><span class="tag">Authentication</span>
+        <span class="tag">Data Protection</span>
+      </div>
+      <a href="https://github.com/Mahembajr" class="project-link" target="_blank">→ View on GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-title">🎓 SUZA Alumni Management System</div>
+        <span class="project-badge badge-done">Completed · Final Year Project</span>
+      </div>
+      <p class="project-desc">Full-stack platform for the State University of Zanzibar built with security-first principles. Features JWT authentication, role-based access control, secure API design, alumni directory, job board, events with RSVP, messaging, clubs, and an admin dashboard. Understanding how these auth systems work is foundational to knowing how they can be exploited.</p>
+      <div class="project-tech">
+        <span class="tag">FastAPI</span><span class="tag">JWT Auth</span><span class="tag">RBAC</span>
+        <span class="tag">React</span><span class="tag">SQLAlchemy</span>
+        <span class="tag">Python</span><span class="tag">SQLite</span>
+      </div>
+      <a href="https://github.com/Mahembajr/alumni_app" class="project-link" target="_blank">→ View Repository</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-title">🏢 Virtuous Insurance Brokers Website</div>
+        <span class="project-badge badge-done">Completed</span>
+      </div>
+      <p class="project-desc">Professional marketing website for a TIRA-licensed insurance brokerage in Tanzania. Clean, responsive, production-deployed with services showcase and contact system.</p>
+      <div class="project-tech">
+        <span class="tag">React</span><span class="tag">Vite</span>
+        <span class="tag">CSS Modules</span><span class="tag">Responsive Design</span>
+      </div>
+      <a href="https://github.com/Mahembajr/virtuous-insurance-brokers-website" class="project-link" target="_blank">→ View Repository</a>
+    </div>
+
+  </div>
+</section>
+
+<hr class="full-divider" />
+
+<section id="contact">
+  <div class="section-label">// 05. contact</div>
+  <h2 class="section-title">Get In Touch</h2>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-intro">I'm <strong>open to cybersecurity internships, SOC analyst roles, and penetration testing opportunities</strong>. If you're working on something interesting in security or just want to connect — reach out.</p>
+      <div class="contact-links">
+        <a href="mailto:laurodesphinx@gmail.com" class="contact-item">
+          <span class="contact-icon">[✉]</span>
+          <div><div class="contact-label">Email</div><div class="contact-value">laurodesphinx@gmail.com</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/laurent-mahemba/" class="contact-item" target="_blank">
+          <span class="contact-icon">[in]</span>
+          <div><div class="contact-label">LinkedIn</div><div class="contact-value">linkedin.com/in/laurent-mahemba</div></div>
+        </a>
+        <a href="https://github.com/Mahembajr" class="contact-item" target="_blank">
+          <span class="contact-icon">[gh]</span>
+          <div><div class="contact-label">GitHub</div><div class="contact-value">github.com/Mahembajr</div></div>
+        </a>
+        <a href="https://tryhackme.com/p/Mahembajr" class="contact-item" target="_blank">
+          <span class="contact-icon">[thm]</span>
+          <div><div class="contact-label">TryHackMe</div><div class="contact-value">tryhackme.com/p/Mahembajr</div></div>
+        </a>
+        <a href="https://www.clippings.me/mahemba" class="contact-item" target="_blank">
+          <span class="contact-icon">[↗]</span>
+          <div><div class="contact-label">Portfolio Articles</div><div class="contact-value">clippings.me/mahemba</div></div>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="tryhackme-card">
+        <div class="tryhackme-card-title">// tryhackme profile</div>
+        <div class="thm-stat"><span class="thm-key">Username</span><span class="thm-val green">Mahembajr</span></div>
+        <div class="thm-stat"><span class="thm-key">Focus</span><span class="thm-val">Jr Penetration Tester Path</span></div>
+        <div class="thm-stat"><span class="thm-key">Home Lab</span><span class="thm-val">Active · Nmap, Wireshark, Kali</span></div>
+        <div class="thm-stat"><span class="thm-key">Next Cert</span><span class="thm-val green">CompTIA Security+</span></div>
+        <div class="thm-stat"><span class="thm-key">Status</span><span class="thm-val green">● Active</span></div>
+        <br/>
+        <a href="https://tryhackme.com/p/Mahembajr" class="project-link" target="_blank">→ View Full Profile</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 Laurent Mahemba | Cybersecurity Portfolio</p>
+  <p>© 2026 <span>Laurent Mahemba</span> · MSc Cybersecurity &amp; Digital Forensics · Tanzania</p>
+  <p style="margin-top:6px;font-size:11px;">Built with intention. Secured by design.</p>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
